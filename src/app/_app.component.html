@@ -1,0 +1,66 @@
+<div class="container">
+  <h1>LES MEVES RECEPTES DE CUINA</h1>
+  <div class="row">
+    <div class="col-6">
+      <h2>MIRAR RECETAS</h2>
+      <div *ngFor="let receta of recetas" class="col-12 ">
+        <h4>{{receta.nombre}}</h4>
+        <p class="ml-5">{{receta.descripcion}}</p>
+        <div class="ml-5 border border-primary pt-3 mb-3">
+          <h5 class="ml-5">Ingredientes</h5>
+          <p class="ml-5">{{receta.ingredientes}}</p>
+        </div>
+        <h5>Valoraciones</h5>
+        <div *ngFor="let valoracion of valoraciones" [hidden]="valoracion.nombre != receta.nombre" class="border border-danger p-2 pt-3 mb-2">
+          <h5 [hidden]="valoracion.nombre != receta.nombre">{{valoracion.nombre}}</h5>
+          <p [hidden]="valoracion.nombre != receta.nombre">{{valoracion.estrellas}}⭐</p>
+          <p [hidden]="valoracion.nombre != receta.nombre">-- {{valoracion.comentario}}</p>
+        </div>
+        <hr>
+      </div>
+    </div>
+    <div class="col-6">
+      <h2>CREAR RECETAS</h2>
+      <div style="text-align:center">
+        <div>
+          <div>
+            Nombre: <input class="form-control" [formControl]="nombre">
+          </div>
+          <div>
+            Descripcion: <input class="form-control" [formControl]="descripcion">
+          </div>
+          <div>
+            Ingredientes: <input class="form-control" [formControl]="ingredientes">
+          </div>
+        </div>
+        <button class="mt-2" (click)="crearReceta()" [disabled]="!nombre.valid || !descripcion.valid || !ingredientes.valid">Crear receta</button>
+      </div>
+
+      <h2>CREAR COMENTARIO</h2>
+      <div style="text-align:center">
+        <div>
+          <div>
+            Nombre:
+            <select class="form-control" [formControl]="receta">
+              <option *ngFor="let receta of recetas" value="{{receta.nombre}}">{{receta.nombre}}</option>
+            </select>
+          </div>
+          <div>
+            Comentario: <input class="form-control" [formControl]="comentario">
+          </div>
+          <div>
+            Estrellas:
+            <select class="form-control" [formControl]="estrellas">
+              <option value="5">5</option>
+              <option value="4">4</option>
+              <option value="3">3</option>
+              <option value="2">2</option>
+              <option value="1">1</option>
+            </select>
+          </div>
+        </div>
+        <button class="mt-2" (click)="crearComentario()" [disabled]="!receta.valid || !comentario.valid || !estrellas.valid">Crear receta</button>
+      </div>
+    </div>
+  </div>
+</div>

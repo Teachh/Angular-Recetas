@@ -1,0 +1,115 @@
+<div class="container">
+  <h1>LES MEVES RECEPTES DE CUINA</h1>
+  <div class="row">
+    <div class="col-6">
+      <h2>MIRAR RECETAS</h2>
+      <!-- Buscador -->
+      <br>
+      <label>Buscador</label>
+      <div class="row mb-3">
+        <div class="col-8">
+          <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="Introduce cualquier campo por el que quieras buscar">
+        </div>
+        <div class="col-4">
+          <select class="form-control" name="">
+            <option value="asc">Ascendente</option>
+            <option value="desc">Descendiente</option>
+          </select>
+        </div>
+      </div>
+      <!-- ./Buscador -->
+      <div *ngFor="let receta of recetas | filter:searchText" class="col-12 ">
+        <h4>{{receta.nombre}}</h4>
+        <p class="ml-5">{{receta.descripcion}}</p>
+
+
+      <!-- botones -->
+
+        <ul class="nav md-pills pills-secondary">
+          <li class="nav-item">
+            <a class="nav-link active" data-toggle="tab" href="#ing{{receta.nombre}}" role="tab">Ingredientes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#val{{receta.nombre}}" role="tab">Valoraciones</a>
+          </li>
+        </ul>
+
+        <!-- Tab panels -->
+        <div class="tab-content pt-0">
+
+          <!--Panel 1-->
+          <div class="tab-pane fade in show active" id="ing{{receta.nombre}}" role="tabpanel">
+            <br>
+
+            <p>{{receta.ingredientes}}</p>
+
+          </div>
+          <!--/.Panel 1-->
+
+          <!--Panel 2-->
+          <div class="tab-pane fade" id="val{{receta.nombre}}" role="tabpanel">
+            <br>
+            <div *ngFor="let valoracion of valoraciones" [hidden]="valoracion.nombre != receta.nombre" class="border border-danger p-2 pt-3 mb-2">
+              <h5 [hidden]="valoracion.nombre != receta.nombre">{{valoracion.nombre}}</h5>
+              <p [hidden]="valoracion.nombre != receta.nombre">{{valoracion.estrellas}}⭐</p>
+              <p [hidden]="valoracion.nombre != receta.nombre">-- {{valoracion.comentario}}</p>
+            </div>
+
+          </div>
+          <!--/.Panel 2-->
+        </div>
+      <!--/. botones -->
+
+
+
+
+        <hr>
+      </div>
+    </div>
+    <div class="col-6">
+      <h2>CREAR RECETAS</h2>
+      <div style="text-align:center">
+        <div>
+          <div>
+            Nombre: <input class="form-control" [formControl]="nombre">
+          </div>
+          <div>
+            Descripcion: <input class="form-control" [formControl]="descripcion">
+          </div>
+          <div>
+            Ingredientes: <input class="form-control" [formControl]="ingredientes">
+          </div>
+        </div>
+        <button class="mt-2" (click)="crearReceta()" [disabled]="!nombre.valid || !descripcion.valid || !ingredientes.valid">Crear receta</button>
+      </div>
+
+      <h2>CREAR COMENTARIO</h2>
+      <div style="text-align:center">
+        <div>
+          <div>
+            Nombre:
+            <select class="form-control" [formControl]="receta">
+              <option *ngFor="let receta of recetas" value="{{receta.nombre}}">{{receta.nombre}}</option>
+            </select>
+          </div>
+          <div>
+            Comentario: <input class="form-control" [formControl]="comentario">
+          </div>
+          <div>
+            Estrellas:
+            <select class="form-control" [formControl]="estrellas">
+              <option value="5">5</option>
+              <option value="4">4</option>
+              <option value="3">3</option>
+              <option value="2">2</option>
+              <option value="1">1</option>
+            </select>
+          </div>
+        </div>
+        <button class="mt-2" (click)="crearComentario()" [disabled]="!receta.valid || !comentario.valid || !estrellas.valid">Crear receta</button>
+      </div>
+    </div>
+  </div>
+
+
+</div>
