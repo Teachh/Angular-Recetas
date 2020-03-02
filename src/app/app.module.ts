@@ -13,13 +13,15 @@ import { BrowserModule } from '@angular/platform-browser';
 //Buscador
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { FormsModule } from '@angular/forms';
+import { SortPipe } from './sort.pipe';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ReceptaComponent
+    ReceptaComponent,
+    SortPipe
   ],
   imports: [
     BrowserModule,

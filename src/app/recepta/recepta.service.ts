@@ -6,19 +6,19 @@ import { Injectable } from '@angular/core';
 // recetas
 var recetas = [
   {
-    nombre: "Receta1",
-    descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    ingredientes: "Patatas, zanahorias, verduras, pollo"
+    nombre: "Macarrones con tomate",
+    descripcion: "Macarrones con carne picada y tomate. Una forma muy fácil y rápida de preparar pasta. Y también barata. Los tendrás listo en cuestión de 30 minutos. ¡Y el resultado será espectacular! Puedes preparar esta recete con otra pasta a tu gusto, como espagueti o tallarines. Sea como sea, probablemente termines untando en pan. ",
+    ingredientes: "500g de macarrones, 500g de carne picada o molida. Mejor si es mezcla de ternera y cerdo ,500g de tomate frito (salsa de tomate), 1 cebolla, 4 dientes de ajo, orégano seco , sal y pimienta, aceite"
   },
   {
-    nombre: "Receta2",
-    descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    ingredientes: "Patatas, zanahorias, verduras, pollo"
+    nombre: "Lasagna",
+    descripcion: "Este clásico de la cocina es famoso en todo el mundo, no sólo en Italia. Ideal para llevar en el tupper al trabajo o al cole, y que sin duda triunfa entre los más pequeños de casa.",
+    ingredientes: "Muchos"
   },
   {
-    nombre: "Receta3",
-    descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    ingredientes: "Patatas, zanahorias, verduras, pollo"
+    nombre: "Arroz con sepia",
+    descripcion: "Quizá uno de las recetas con arroz más sencillas de preparar sea este arroz con sepia. Un arroz con un gran sabor a mar, estilo seco y fácil, ¿se puede pedir más?",
+    ingredientes: "Arroz y sepia"
   }
 ];
 

@@ -11,14 +11,18 @@
           <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="Introduce cualquier campo por el que quieras buscar">
         </div>
         <div class="col-4">
-          <select class="form-control" name="">
-            <option value="asc">Ascendente</option>
-            <option value="desc">Descendiente</option>
-          </select>
+          <select [(ngModel)]="colname" class="form-control">
+           <option value="nombre">Nombre Asc</option>
+           <option value="-nombre">Nombre Desc</option>
+           <option value="descripcion">Descripcion Asc</option>
+           <option value="-descripcion">Descripcion Desc</option>
+           <option value="ingredientes">Ingredientes Asc</option>
+           <option value="-ingredientes">Ingredientes Desc</option>
+           </select>
         </div>
       </div>
       <!-- ./Buscador -->
-      <div *ngFor="let receta of recetas | filter:searchText" class="col-12 ">
+      <div *ngFor="let receta of recetas | sort:colname | filter:searchText" class="col-12 ">
         <h4>{{receta.nombre}}</h4>
         <p class="ml-5">{{receta.descripcion}}</p>
 

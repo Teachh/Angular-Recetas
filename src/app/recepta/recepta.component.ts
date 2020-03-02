@@ -15,6 +15,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class ReceptaComponent implements OnInit {
 
   searchText;
+  colname = 'nombre';
 
   // declarar vacio para que no salte error
   recetas = null;
